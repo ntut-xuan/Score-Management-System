@@ -4,6 +4,8 @@
 
 利用 React 前端 + Python 後端實作出來的成績管理系統
 
+![](https://i.imgur.com/AjFoDwB.png)
+
 ## 預期支援功能
 
  - [ ] 供給學生/教師/助教登入登出系統
