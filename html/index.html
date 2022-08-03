@@ -1,0 +1,46 @@
+<html>
+    <link rel="stylesheet" href="/static/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <body>
+        <div class="w-screen h-screen bg-blue-200">
+            <!-- 基本上這邊在做的事情，就是呈現中間那個很大的圓角正方形 -->
+            <!-- class 裡面放的是 CSS 的部分，分別是取大概畫面 30% 當作寬度，左移、下移至畫面 50%，然後做個轉置(因為以左上角為標準點) -->
+            <!-- 然後我們給他一點 padding (1.25 rem)，有個圓角，然後背景顏色是白的 -->
+            <!-- 基本上來說，div 可以想像成是一個把東西包起來的箱子 -->
+            <div class="w-[30%] left-[50%] top-[50%] absolute translate-x-[-50%] translate-y-[-50%] p-5 rounded-lg bg-white">
+                <!-- 用 p 來呈現文字，CSS 做了置中、調整字體、調整字的位置，還有給這個字上下一點空間 -->
+                <p class="text-center text-4xl font-['Mochiy_Pop_One'] py-5"> 一代成績管理系統 </p>
+                <!-- 這部分預計會做兩個按紐，分別是教師端與學生端 -->
+                <!-- Flex 是一個很酷的東西，他會讓連續的物件水平擺放或者垂直擺放 -->
+                <!-- 這邊我們用一個 div 包兩個 div，然後我們讓這兩個 div 水平擺放 -->
+                <!-- 用 gap 來分隔這兩個 div，給他們一點距離 -->
+                <div class="flex flex-row gap-5 p-5">
+                    <a class="w-full h-full" href="/s-login">
+                        <div class="w-full h-full bg-blue-100 rounded-lg p-10 cursor-pointer hover:bg-slate-100 active:translate-x-1 active:translate-y-1">
+                            <img src="/static/img/search.png" class="w-[70%] h-auto mx-auto">
+                            <p class="pt-5 text-center text-2xl font-['Noto_Sans_TC']"> 學生查詢端 </p>
+                        </div>
+                    </a>
+                    <a class="w-full h-full" href="/t-login">
+                        <div class="w-full h-full bg-blue-100 rounded-lg p-10 cursor-pointer hover:bg-slate-100 active:translate-x-1 active:translate-y-1">
+                            <img src="/static/img/desktop-computer.png" class="w-[70%] h-auto mx-auto">
+                            <p class="pt-5 text-center text-2xl font-['Noto_Sans_TC']"> 教師登入端 </p>
+                        </div>
+                    </a>
+                </div>
+                <!-- 做個 footer -->
+                <div>
+                    <p class="text-center text-base"> Author: 
+                        <a href="https://ntut-xuan.github.io" class="text-orange-500 underline-offset-2" target="_blank">ntut-xuan</a>
+                    </p>
+                    <p class="text-center text-base pt-1"> Icon by freepik </p>
+                </div>
+            </div>
+        </div>
+    </body> 
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="/static/js/index.js"></script>
+</html>
