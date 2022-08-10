@@ -7,133 +7,16 @@
     <link href="http://fonts.cdnfonts.com/css/seven-segment" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/airborne" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <body>
-        <div class="w-screen h-screen bg-blue-200 p-5">
-            <div class="flex flex-row gap-5">
-                <div class="w-[20%] h-[95vh] bg-white rounded p-10 block overflow-y-auto">
-                    <!-- Toolbar -->
-                    <p class="text-center text-4xl font-['Mochiy_Pop_One'] pb-12"> 成績管理系統 </p>
-                    <div id="course-option" class="flex flex-col h-fit gap-10">
-                        <p class="text-center text-xl hover:bg-cyan-200 cursor-pointer p-2 rounded-full transition-all duration-200 bg-cyan-200"> 主頁 </p>
-                        <p class="text-center text-xl hover:bg-cyan-200 cursor-pointer p-2 rounded-full transition-all duration-200"> 管理班級人員 </p>
-                        <p class="text-center text-xl hover:bg-cyan-200 cursor-pointer p-2 rounded-full transition-all duration-200"> 管理功課 </p>
-                        <p class="text-center text-xl hover:bg-cyan-200 cursor-pointer p-2 rounded-full transition-all duration-200"> 管理成績 </p>
-                        <p class="text-center text-xl hover:bg-cyan-200 cursor-pointer p-2 rounded-full transition-all duration-200"> 查看事件 </p>
-                        <p class="text-center text-xl hover:bg-cyan-200 cursor-pointer p-2 rounded-full transition-all duration-200"> 學生私訊 </p>
-                        <p class="text-center text-xl hover:bg-cyan-200 cursor-pointer p-2 rounded-full transition-all duration-200"> 登出 </p>
-                    </div>
-                </div>
-                <div class="w-[60%] h-[95vh] bg-white rounded p-10 block overflow-y-auto">
-                    <!-- 主頁 -->
-                    <div>
-                        <p class="text-4xl font-['Mochiy_Pop_One'] pb-5"> 成績管理系統開發與實作 </p>
-                        <p class="text-xl font-['Mochiy_Pop_One'] pb-5"> 北科高中資工二乙 </p>
-                        <hr class="pb-5" />
-                        <div class="h-[72vh] flex flex-row gap-5">
-                            <div class="w-[35%] border-2 p-5 py-10">
-                                <p class="text-center pb-10 text-xl"> 班級人員列表 </p>
-                                <div class="flex flex-col gap-5 h-[57vh] overflow-y-auto">
-                                    <div class="p-5 bg-blue-200 rounded hover:bg-blue-100 cursor-pointer">
-                                        <p class="text-xl"> 奇怪的人 </p>
-                                        <p class="text-sm pt-2"> 資工碩二 - 109598091 </p>
-                                    </div>
-                                    <div class="p-5 bg-orange-200 rounded hover:bg-orange-100 cursor-pointer">
-                                        <p class="text-xl"> 某個人 </p>
-                                        <p class="text-sm pt-2"> 資工二 - 109590091 </p>
-                                    </div>
-                                    <div class="p-5 bg-orange-200 rounded hover:bg-orange-100 cursor-pointer">
-                                        <p class="text-xl"> 某個人 </p>
-                                        <p class="text-sm pt-2"> 資工二 - 109590091 </p>
-                                    </div>
-                                    <div class="p-5 bg-orange-200 rounded hover:bg-orange-100 cursor-pointer">
-                                        <p class="text-xl"> 某個人 </p>
-                                        <p class="text-sm pt-2"> 資工二 - 109590091 </p>
-                                    </div>
-                                    <div class="p-5 bg-orange-200 rounded hover:bg-orange-100 cursor-pointer">
-                                        <p class="text-xl"> 某個人 </p>
-                                        <p class="text-sm pt-2"> 資工二 - 109590091 </p>
-                                    </div>
-                                    <div class="p-5 bg-orange-200 rounded hover:bg-orange-100 cursor-pointer">
-                                        <p class="text-xl"> 某個人 </p>
-                                        <p class="text-sm pt-2"> 資工二 - 109590091 </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-[65%] flex flex-col gap-5">
-                                <div class="h-[50%] border-2 p-5 pt-10">
-                                    <p class="text-center pb-10 text-xl"> 近期兩次作業 </p>
-                                    <div class="flex flex-row gap-5">
-                                        <div class="p-5 bg-red-200 rounded h-[21vh] w-[50%] hover:bg-red-100 cursor-pointer">
-                                            <p class="text-xl"> 作業 #1 </p>
-                                            <p class="text-sm pt-5"> 由 [奇怪的人] 指派 </p>
-                                            <p class="text-sm pt-5"> 繳交人數：63/64 </p>
-                                            <p class="text-sm pt-5"> 繳交期限：2022/08/24 </p>
-                                        </div>
-                                        <div class="p-5 bg-red-200 rounded h-[21vh] w-[50%] hover:bg-red-100 cursor-pointer">
-                                            <p class="text-xl"> 作業 #2 </p>
-                                            <p class="text-sm pt-5"> 由 [奇怪的人] 指派 </p>
-                                            <p class="text-sm pt-5"> 繳交人數：22/64 </p>
-                                            <p class="text-sm pt-5"> 繳交期限：2022/09/01 </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="h-[50%] border-2 p-5 pt-10">
-                                    <p class="text-center pb-10 text-xl"> 統計數據 </p>
-                                    <div class="flex flex-row gap-5">
-                                        <div class="p-5 bg-teal-200 rounded h-[21vh] w-[25%] hover:bg-teal-100 cursor-pointer">
-                                            
-                                        </div>
-                                        <div class="p-5 bg-teal-200 rounded h-[21vh] w-[25%] hover:bg-teal-100 cursor-pointer">
-                                            
-                                        </div>
-                                        <div class="p-5 bg-teal-200 rounded h-[21vh] w-[25%] hover:bg-teal-100 cursor-pointer">
-                                            
-                                        </div>
-                                        <div class="p-5 bg-teal-200 rounded h-[21vh] w-[25%] hover:bg-teal-100 cursor-pointer">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-[20%] h-[95vh] rounded flex flex-col gap-5">
-                    <div class="w-full h-[15%] bg-white rounded p-5 text-center">
-                        <div class="relative left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-                            <p class="text-3xl py-1 font-['Airborne']"> 2022/08/03 </p>
-                            <p class="text-6xl py-1 font-['Airborne']"> 23:08 </p>
-                        </div>
-                    </div>
-                    <div class="w-full h-[85%] bg-white rounded p-5">
-                        <p class="text-center text-xl p-5"> 最新事件 </p>
-                        <div class="h-[67vh] rounded flex flex-col gap-7">
-                            <div class="card w-full h-fit p-5 py-8 border-2 rounded shadow-md cursor-pointer hover:bg-slate-100">
-                                <p class="text-xl"> 學生私訊 #1 </p>
-                                <p class="text-sm pt-2"> 主旨：功課詢問 </p>
-                                <p class="text-sm pt-2"> 發送時間：2022/08/01 22:35 </p>
-                            </div>
-                            <div class="card w-full h-fit p-5 py-8 border-2 rounded shadow-md cursor-pointer hover:bg-slate-100">
-                                <p class="text-xl"> HW#1 - 作業進度 </p>
-                                <p class="text-sm pt-2"> 繳交：63/64 </p>
-                                <p class="text-sm pt-2"> 期限：2022/08/24 </p>
-                            </div>
-                            <div class="card w-full h-fit p-5 py-8 border-2 rounded shadow-md cursor-pointer hover:bg-slate-100">
-                                <p class="text-xl"> HW#2 - 作業進度 </p>
-                                <p class="text-sm pt-2"> 繳交：22/64 </p>
-                                <p class="text-sm pt-2"> 期限：2022/09/01 </p>
-                            </div>
-                            <div class="card w-full h-fit p-5 border-2 rounded shadow-md cursor-pointer hover:bg-slate-100">
-                                <p class="text-center text-xl"> 查看全部 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div>
+        <div id="app" class="w-screen h-screen bg-blue-200 p-5">
+            
         </div>
     </body> 
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="/static/js/DataValidPattern.js"></script>
-    <script src="/static/js/login.js"></script>
+    <script src="/static/js/error_code.js"></script>
+    <script src="/static/js/teacher-platform.js"></script>
 </html>

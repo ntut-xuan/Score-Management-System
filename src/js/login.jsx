@@ -38,19 +38,29 @@ class LoginForm extends React.Component {
         password_invalid_notice_div.render(<PasswordInvalidNotice warning={password_valid ? true : false} />)
 
         /* Handle ajax post, but backend auth system not yet finish, so we skip it. */
-        Swal.fire({
-            icon: "success",
-            title: "登入成功",
-            showConfirmButton: false,
-            timer: 1000
-        })
+        if(data_valid){
+            $.ajax({
+                url: window.location.pathname,
+                data: JSON.stringify({"username": account, "password": password}),
+                type: "POST",
+                contentType: "application/json",
+                dataType: "json",
+                success(data, status, xhr){
+                    if(data["status"] == "OK"){
+                        success_swal("登入成功").then(() => {window.location.href = "/platform"})
+                    }else{
+                        error_swal("登入失敗", data["code"])
+                    }
+                }
+            })
+        }
 
     }
     componentDidMount(){
         setTimeout(function(){
             document.getElementById("login-form").classList.remove("max-h-0")
             document.getElementById("login-form").classList.add("max-h-[50%]")
-        }, 500)
+        }, 100)
     }
     render(){
         let login_form = (
