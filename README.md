@@ -23,7 +23,7 @@
 
 ### 前端
 
-React.js、Swalfire2、chart.js、Babel、TailwindCSS
+React.js、SweetAlarm2、chart.js、Babel、TailwindCSS
 
 ### 後端
 
