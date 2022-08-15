@@ -6,17 +6,80 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TeacherPlatform = function (_React$Component) {
-    _inherits(TeacherPlatform, _React$Component);
+var Clock = function (_React$Component) {
+    _inherits(Clock, _React$Component);
+
+    function Clock(props) {
+        _classCallCheck(this, Clock);
+
+        var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+
+        _this.state = {
+            date_string: "",
+            time_string: "",
+            time_format: props.time_format,
+            date_format: props.date_format
+        };
+        return _this;
+    }
+
+    _createClass(Clock, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            var _state = this.state,
+                time_format = _state.time_format,
+                date_format = _state.date_format;
+
+            this.timer_id = setInterval(function () {
+                time_string = luxon.DateTime.now().setZone("Asia/Taipei").toFormat(time_format);
+                date_string = luxon.DateTime.now().setZone("Asia/Taipei").toFormat(date_format);
+                _this2.setState({ time_string: time_string, date_string: date_string });
+            }, 500);
+        }
+    }, {
+        key: "componentWillUnmount",
+        value: function componentWillUnmount() {
+            clearInterval(this.timer_id);
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var _state2 = this.state,
+                date_string = _state2.date_string,
+                time_string = _state2.time_string;
+
+            return [React.createElement(
+                "p",
+                { className: "text-4xl py-1 font-['Airborne']" },
+                " ",
+                date_string,
+                " "
+            ), React.createElement(
+                "p",
+                { className: "text-4xl py-1 font-['Airborne']" },
+                " ",
+                time_string,
+                " "
+            )];
+        }
+    }]);
+
+    return Clock;
+}(React.Component);
+
+var TeacherPlatform = function (_React$Component2) {
+    _inherits(TeacherPlatform, _React$Component2);
 
     function TeacherPlatform(props) {
         _classCallCheck(this, TeacherPlatform);
 
-        var _this = _possibleConstructorReturn(this, (TeacherPlatform.__proto__ || Object.getPrototypeOf(TeacherPlatform)).call(this, props));
+        var _this3 = _possibleConstructorReturn(this, (TeacherPlatform.__proto__ || Object.getPrototypeOf(TeacherPlatform)).call(this, props));
 
-        _this.state = {};
-        _this.logout = _this.logout.bind(_this);
-        return _this;
+        _this3.state = {};
+        _this3.logout = _this3.logout.bind(_this3);
+        return _this3;
     }
 
     _createClass(TeacherPlatform, [{
@@ -348,16 +411,7 @@ var TeacherPlatform = function (_React$Component) {
                         React.createElement(
                             "div",
                             { className: "relative left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]" },
-                            React.createElement(
-                                "p",
-                                { className: "text-3xl py-1 font-['Airborne']" },
-                                " 2022/08/03 "
-                            ),
-                            React.createElement(
-                                "p",
-                                { className: "text-6xl py-1 font-['Airborne']" },
-                                " 23:08 "
-                            )
+                            React.createElement(Clock, { date_format: "yyyy/MM/dd", time_format: "HH:mm:ss" })
                         )
                     ),
                     React.createElement(

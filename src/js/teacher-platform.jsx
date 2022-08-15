@@ -1,3 +1,30 @@
+class Clock extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            date_string: "", 
+            time_string: "", 
+            time_format: props.time_format, 
+            date_format: props.date_format
+        }
+    }
+    componentDidMount(){
+        let {time_format, date_format} = this.state
+        this.timer_id = setInterval(() => {
+            time_string = luxon.DateTime.now().setZone("Asia/Taipei").toFormat(time_format)
+            date_string = luxon.DateTime.now().setZone("Asia/Taipei").toFormat(date_format)
+            this.setState({time_string: time_string, date_string: date_string})
+        }, 500)
+    }
+    componentWillUnmount(){
+        clearInterval(this.timer_id)
+    }
+    render(){
+        let {date_string, time_string} = this.state
+        return [<p className="text-4xl py-1 font-['Airborne']"> {date_string} </p>, <p className="text-4xl py-1 font-['Airborne']"> {time_string} </p>]
+    }
+}
+
 class TeacherPlatform extends React.Component {
     constructor(props){
         super(props);
@@ -136,8 +163,7 @@ class TeacherPlatform extends React.Component {
                 <div className="w-[20%] h-[95vh] rounded flex flex-col gap-5">
                     <div className="w-full h-[15%] bg-white rounded p-5 text-center">
                         <div className="relative left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-                            <p className="text-3xl py-1 font-['Airborne']"> 2022/08/03 </p>
-                            <p className="text-6xl py-1 font-['Airborne']"> 23:08 </p>
+                            <Clock date_format="yyyy/MM/dd" time_format="HH:mm:ss" />
                         </div>
                     </div>
                     <div className="w-full h-[85%] bg-white rounded p-5">

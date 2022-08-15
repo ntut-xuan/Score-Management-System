@@ -14,7 +14,7 @@ var LoginForm = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
 
-        _this.state = { account: "", password: "" /* It's valid to use email to be account. */
+        _this.state = { account: "sms_admin", password: "@Sms2022" /* It's valid to use email to be account. */
         };_this.handleAccountChange = _this.handleAccountChange.bind(_this);
         _this.handlePasswordChange = _this.handlePasswordChange.bind(_this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);

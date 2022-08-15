@@ -5,7 +5,7 @@ import flask
 __all__ = ["index_page", "login_page", "teacher_platform_page", "platform_redirect"]
 
 def read_html(filename):
-    return open(f"../html/{filename}.html", encoding="utf8").read()
+    return open(f"/etc/sms/html/{filename}", encoding="utf8").read()
 
 def index_page():
     return read_html("index.html")
