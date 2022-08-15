@@ -1,7 +1,7 @@
 class LoginForm extends React.Component {
     constructor(props){
         super(props)
-        this.state = {account: "", password: ""} /* It's valid to use email to be account. */
+        this.state = {account: "sms_admin", password: "@Sms2022"} /* It's valid to use email to be account. */
         this.handleAccountChange = this.handleAccountChange.bind(this)
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
         /* Handle ajax post, but backend auth system not yet finish, so we skip it. */
         if(data_valid){
             $.ajax({
-                url: window.location.pathname,
+                url: "/api/teacher/login",
                 data: JSON.stringify({"username": account, "password": password}),
                 type: "POST",
                 contentType: "application/json",

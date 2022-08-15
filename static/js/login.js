@@ -64,7 +64,7 @@ var LoginForm = function (_React$Component) {
             /* Handle ajax post, but backend auth system not yet finish, so we skip it. */
             if (data_valid) {
                 $.ajax({
-                    url: window.location.pathname,
+                    url: "/api/teacher/login",
                     data: JSON.stringify({ "username": account, "password": password }),
                     type: "POST",
                     contentType: "application/json",
