@@ -15,7 +15,7 @@ class Teacher:
         
         # check password and username is valid
         username = json_data["username"]
-        password = Auth.password_encryption(json_data["password"])
+        password = json_data["password"]
         username_valid = bool(re.match("[a-zA-Z\\d](?:[a-zA-Z\\d]|[_-](?=[a-zA-Z\\d])){3,38}$", username))
         password_valid = bool(re.match("(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$", password))
         if not username_valid:

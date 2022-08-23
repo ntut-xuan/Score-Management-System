@@ -15,7 +15,7 @@ class Auth:
 
     def login(username, password):
         data = _Database.command_execute("SELECT * FROM `user` where username=%s", (username))[0]
-        if data["password"] == password:
+        if data["password"] == Auth.password_encryption(password):
             return data["user_uid"]
         return None
 
