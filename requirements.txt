@@ -1,0 +1,9 @@
+flask
+pymysql
+flask_cors
+loguru
+flask_login
+flask_session
+python-dateutil
+pytz
+pyjwt
