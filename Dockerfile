@@ -12,7 +12,7 @@ RUN node -v
 RUN npm -v
 # setup repository file to /etc/sms
 RUN mkdir /etc/sms
-RUN git clone https://github.com/ntut-xuan/Score-Management-System.git /etc/sms
+COPY . /etc/sms
 # install tailwindcss and react.js from npm
 WORKDIR /etc/sms
 RUN npm install -D tailwindcss babel-cli@6 babel-preset-react-app@3
