@@ -15,27 +15,6 @@
 */
 
 -- ----------------------------
--- Create User
--- ----------------------------
-DROP USER IF EXISTS 'SMSU'@'localhost';
-CREATE USER 'SMSU'@'localhost' IDENTIFIED BY 'SMS0123!@#$';
-DROP USER IF EXISTS 'SMSU'@'192.168.0.%';
-CREATE USER 'SMSU'@'192.168.0.%' IDENTIFIED BY 'SMS0123!@#$';
-GRANT ALL PRIVILEGES ON *.* TO 'SMSU'@'localhost' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON *.* TO 'SMSU'@'192.168.0.%' WITH GRANT OPTION;
-
--- ----------------------------
--- Create Database
--- ----------------------------
-DROP DATABASE IF EXISTS SMS;
-CREATE DATABASE SMS;
-
-Use SMS;
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
 -- Table structure for course
 -- ----------------------------
 DROP TABLE IF EXISTS `course`;
