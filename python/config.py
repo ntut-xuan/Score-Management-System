@@ -1,6 +1,6 @@
 mysqlConfig = {
-    "host": "127.0.0.1",
-    "user": "SMSU",
-    "password": "SMS0123!@#$",
+    "host": "score-management-system-mariadb-1",
+    "user": "smsa",
+    "password": "@smsa2022",
     "database": "SMS"
 }

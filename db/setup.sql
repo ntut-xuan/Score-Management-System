@@ -15,6 +15,17 @@
 */
 
 -- ----------------------------
+-- Create Database
+-- ----------------------------
+DROP DATABASE IF EXISTS SMS;
+CREATE DATABASE SMS;
+
+Use SMS;
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
 -- Table structure for course
 -- ----------------------------
 DROP TABLE IF EXISTS `course`;
