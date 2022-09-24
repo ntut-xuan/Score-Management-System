@@ -2,12 +2,12 @@ version: '0.0.1'
 
 services:
   mariadb:
-    image: mariadb
+    build: ./db
     restart: always
     environment:
       MYSQL_USER: smsa
       MYSQL_PASSWORD: "@smsa2022"
-      MYSQL_DATABASE: fastshop
+      MYSQL_DATABASE: SMS
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: "#smsr2022"
     ports:
@@ -15,5 +15,7 @@ services:
   sms:
     build: .
     tty: true
+    depends_on:
+      - mariadb
     ports:
       - "3000:3000"
