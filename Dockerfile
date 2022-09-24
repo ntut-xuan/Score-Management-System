@@ -20,3 +20,4 @@ RUN npm install -D tailwindcss babel-cli@6 babel-preset-react-app@3
 RUN pip3 install -r requirements.txt
 # expose port
 EXPOSE 8080
+CMD python3 /etc/sms/python/main.py
